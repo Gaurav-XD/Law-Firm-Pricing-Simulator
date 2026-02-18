@@ -52,3 +52,14 @@ This structure can be directly implemented in SQL to handle millions or billions
 1. Review the base data in the lawyers, clients, cases, and time_entries sheets
 2. Adjust scenario inputs in the scenarios sheet
 3. Review the summary sheet to compare base and scenario profitability
+
+## SQL Implementation
+The pricing model is implemented in MySQL using a normalized schema with fact and dimension tables.
+SQL queries calculate revenue, cost, profit, and scenario-based profitability using joins and aggregations.
+Scenario analysis is supported via SQL variables to simulate changes in rates, costs, and realization.
+
+## Python Simulation
+A Python version of the simulator automates scenario analysis using pandas.
+It reproduces the same business logic as Excel and SQL, enabling rapid testing of multiple pricing scenarios
+and supporting scalable what-if analysis.
+
