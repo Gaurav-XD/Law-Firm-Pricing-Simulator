@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # -------------------------
 # Base data (same as SQL)
@@ -84,3 +85,32 @@ scenario_profit = run_scenario(
 
 print("Scenario Profit:", scenario_profit)
 
+
+# Calculate base profit
+base_profit = df["profit"].sum()
+
+# Define multiple scenarios
+scenarios = [
+    {"name": "Base", "rate": 0.00, "cost": 0.00, "realization": 0.00},
+    {"name": "Rate +10%", "rate": 0.10, "cost": 0.00, "realization": 0.00},
+    {"name": "Cost +10%", "rate": 0.00, "cost": 0.10, "realization": 0.00},
+    {"name": "Realization +5%", "rate": 0.00, "cost": 0.00, "realization": 0.05},
+]
+
+results = []
+
+for s in scenarios:
+    profit = run_scenario(
+        rate_increase=s["rate"],
+        cost_increase=s["cost"],
+        realization_change=s["realization"]
+    )
+    results.append(profit)
+
+# Plot comparison
+plt.figure()
+plt.bar([s["name"] for s in scenarios], results)
+plt.title("Base vs Scenario Profit Comparison")
+plt.xticks(rotation=30)
+plt.tight_layout()
+plt.show()
