@@ -114,3 +114,23 @@ plt.title("Base vs Scenario Profit Comparison")
 plt.xticks(rotation=30)
 plt.tight_layout()
 plt.show()
+
+# Sensitivity analysis for rate increase
+rate_values = [0.00, 0.05, 0.10, 0.15, 0.20]
+profits = []
+
+for r in rate_values:
+    profit = run_scenario(
+        rate_increase=r,
+        cost_increase=0.00,
+        realization_change=0.00
+    )
+    profits.append(profit)
+
+plt.figure()
+plt.plot(rate_values, profits)
+plt.title("Profit Sensitivity to Rate Increase")
+plt.xlabel("Rate Increase")
+plt.ylabel("Total Profit")
+plt.show()
+
