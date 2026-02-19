@@ -63,3 +63,11 @@ A Python version of the simulator automates scenario analysis using pandas.
 It reproduces the same business logic as Excel and SQL, enabling rapid testing of multiple pricing scenarios
 and supporting scalable what-if analysis.
 
+## Visual Insights
+### Base vs Scenario Profit Comparison
+![Base vs Scenario](screenshots/base_vs_scenario_profit.png)
+
+### Profit Sensitivity to Rate Increase
+![Rate Sensitivity](screenshots/rate_sensitivity.png)
+
+
